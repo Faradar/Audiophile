@@ -1,4 +1,5 @@
 import CartWidget from "../CartWidget/CartWidget";
+// import styles from "./NavBar.module.scss";
 
 const NavBar = () => {
   return (
@@ -11,7 +12,7 @@ const NavBar = () => {
         {/* Links */}
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <a href="#" className="nav-link text-altlight">
               Vehiculos
             </a>
           </li>

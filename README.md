@@ -35,6 +35,12 @@ Project is created with:
 - Tech 2 - version 2.0
 - Tech 3 - version 3.0
 
+- html
+- scss
+- jsx
+- react
+- bootstrap
+
 ## Features
 
 List the ready features here:

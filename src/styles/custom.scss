@@ -1,0 +1,30 @@
+// Custom Bootstrap maps and variables
+
+// Required for Custom Variables
+@import "bootstrap/scss/functions";
+
+// Changing existing Bootstrap Variables
+// $primary: green;
+
+// Personal Variables to be added to the Custom Bootstrap Maps
+$altlight: red;
+
+// Required for Custom Maps
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// Custom Bootstrap Maps
+$custom-theme-colors: (
+  "altlight": $altlight,
+);
+
+// Merge the theme map with my custom map
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// Required for Custom Maps
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// Import bootstrap
+@import "bootstrap/scss/bootstrap.scss";
