@@ -1,5 +1,7 @@
-.timmy {
-  color: red;
-  background-color: yellow;
-  margin-left: 500px;
+.links {
+  color: white;
+
+  &:hover {
+    color: orange;
+  }
 }

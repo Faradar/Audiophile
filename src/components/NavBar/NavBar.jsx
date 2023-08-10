@@ -1,37 +1,37 @@
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import CartWidget from "../CartWidget/CartWidget";
-// import styles from "./NavBar.module.scss";
+import styles from "./NavBar.module.scss";
 
-const NavBar = () => {
+function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
+    <Navbar bg="dark" data-bs-theme="dark">
+      <Container>
         {/* Brand */}
-        <a className="navbar-brand" href="#">
+        <Navbar.Brand href="#">
           <img alt="Audiophile logo - Home" src="./images/logo.svg"></img>
-        </a>
+        </Navbar.Brand>
         {/* Links */}
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="#" className="nav-link text-altlight">
-              Vehiculos
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              Muebles
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              Tecnología
-            </a>
-          </li>
-        </ul>
+        <Nav className="me-auto">
+          <Nav.Link href="#" className={styles.links}>
+            HOME
+          </Nav.Link>
+          <Nav.Link href="#" className={styles.links}>
+            HEADPHONES
+          </Nav.Link>
+          <Nav.Link href="#" className={styles.links}>
+            SPEAKERS
+          </Nav.Link>
+          <Nav.Link href="#" className={styles.links}>
+            EARPHONES
+          </Nav.Link>
+        </Nav>
         {/* CartWidget */}
         <CartWidget />
-      </div>
-    </nav>
+      </Container>
+    </Navbar>
   );
-};
+}
 
 export default NavBar;

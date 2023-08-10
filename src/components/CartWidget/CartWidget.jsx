@@ -1,16 +1,18 @@
+import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
+
 const CartWidget = () => {
   return (
-    <div>
-      <button
-        type="button"
-        className="btn btn-outline-primary position-relative"
+    <Button variant="transparent" className="text-white position-relative">
+      <i className="bi bi-cart"></i>
+      <Badge
+        bg="danger"
+        className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
       >
-        <i className="bi bi-cart"></i>
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          3<span className="visually-hidden">products in cart</span>
-        </span>
-      </button>
-    </div>
+        3
+      </Badge>
+      <span className="visually-hidden">products in cart</span>
+    </Button>
   );
 };
 
