@@ -1,17 +1,15 @@
 # E-Commerce
 
-> Outline a brief description of your project.
+> Audiophile E-Commerce website, desgined as the main project of the <a href="https://www.coderhouse.com/online/reactjs" target="_blank" rel="noopener">Coderhouse React Js course</a>.
 
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://pre-entrega1-echeveste-arteaga.vercel.app/).
 
 ## Table of Contents
 
 - [General Info](#general-info)
 - [Technologies](#technologies)
-- [Features](#features)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
-- [Usage](#usage)
 - [Project Status](#project-status)
 - [Room for Improvement](#room-for-improvement)
 - [Acknowledgements](#acknowledgements)
@@ -19,62 +17,32 @@
 
 ## General Info
 
-This project is simple Lorem ipsum dolor generator.
-
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+This project is a prototype e-commerce page, designed to learn and practice both React and Bootstrap.
 
 ## Technologies
 
 Project is created with:
 
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
-
-- html
-- scss
-- jsx
-- react
-- bootstrap
-
-## Features
-
-List the ready features here:
-
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- React - version 18.2.0
+- Bootstrap - version 5.3.1
+- Bootstrap icons - version 1.10.5
+- React-bootstrap - version 2.8.0
+- SASS - version 1.64.2
+- HTML5
+- JSX
 
 ## Screenshots
 
 ![Example screenshot](./img/screenshot.png)
 
-<!-- If you have screenshots you'd like to share, include them here. -->
-
 ## Setup
 
-To run this project, install it locally using npm:
+To run this project locally using npm:
 
 ```
-$ cd ../lorem
 $ npm install
-$ npm start
+$ npm run dev
 ```
-
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-## Usage
-
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
 
 ## Project Status
 
@@ -82,17 +50,14 @@ Project is: _in progress_
 
 ## Room for Improvement
 
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
 
-- Improvement to be done 1
-- Improvement to be done 2
+- A lot, it still needs a lot of work
 
 To do:
 
-- Feature to be added 1
-- Feature to be added 2
+- Mobile First
+- Full working nav
 
 ## Acknowledgements
 
