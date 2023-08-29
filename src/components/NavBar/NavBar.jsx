@@ -10,7 +10,7 @@ function NavBar() {
       <Container>
         {/* Brand */}
         <Navbar.Brand href="/">
-          <img alt="Audiophile logo" src="/img/logo.svg"></img>
+          <img alt="Audiophile logo" src="/logo.svg"></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
