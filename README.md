@@ -4,8 +4,6 @@
 
 > Live demo [_here_](https://audiophile-ecommerce-faradar.vercel.app/).
 
-> Alternative [_here_](https://faradar.github.io/PreEntrega2-Echeveste-Arteaga/).
-
 ## Table of Contents
 
 - [General Info](#general-info)
