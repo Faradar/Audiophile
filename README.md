@@ -1,8 +1,10 @@
-# E-Commerce
+# Audiophile E-Commerce
 
 > Audiophile E-Commerce website, desgined as the main project of the <a href="https://www.coderhouse.com/online/reactjs" target="_blank" rel="noopener">Coderhouse React Js course</a>.
 
-> Live demo [_here_](https://audiophile-ecommerce-tomas-echeveste-arteaga.vercel.app/).
+> Live demo [_here_](https://audiophile-ecommerce-faradar.vercel.app/).
+
+> Alternative [_here_](https://faradar.github.io/PreEntrega2-Echeveste-Arteaga/).
 
 ## Table of Contents
 
