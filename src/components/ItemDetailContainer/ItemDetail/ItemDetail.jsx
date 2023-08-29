@@ -1,8 +1,17 @@
 import propTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Spinner from "react-bootstrap/Spinner";
 
 const ItemDetail = ({ item, isLoading }) => {
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   if (!item) {
@@ -10,13 +19,17 @@ const ItemDetail = ({ item, isLoading }) => {
   }
 
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <p>${item.price}</p>
-      <p>{item.category}</p>
-      <p>{item.description}</p>
-      <img src={item.image} alt={item.name} />
-    </div>
+    <Card style={{ width: "18rem" }} className="mx-auto">
+      <Card.Img variant="top" src={item.image} alt={item.name} />
+      <Card.Body>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Text>
+          {item.description}
+          <br />${item.price}
+        </Card.Text>
+        <Button variant="primary">ADD TO CART</Button>
+      </Card.Body>
+    </Card>
   );
 };
 

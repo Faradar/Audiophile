@@ -2,7 +2,7 @@
 
 > Audiophile E-Commerce website, desgined as the main project of the <a href="https://www.coderhouse.com/online/reactjs" target="_blank" rel="noopener">Coderhouse React Js course</a>.
 
-> Live demo [_here_](https://pre-entrega1-echeveste-arteaga.vercel.app/).
+> Live demo [_here_](https://audiophile-ecommerce-tomas-echeveste-arteaga.vercel.app/).
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ Project is created with:
 To run this project locally using npm:
 
 ```
-$ npm install
+$ npm i
 $ npm run dev
 ```
 
