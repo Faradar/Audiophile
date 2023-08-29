@@ -1,12 +1,23 @@
-/* eslint-disable react/prop-types */
-import styles from "./ItemListContainer.module.scss";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../services";
+import ItemList from "./ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = (props) => {
-  return (
-    <div>
-      <h1 className={styles.text}>{props.greeting}</h1>
-    </div>
-  );
+const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { categoryId } = useParams();
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    getProducts(categoryId).then((response) => {
+      setItems(response);
+      setIsLoading(false);
+    });
+  }, [categoryId]);
+
+  return <ItemList items={items} isLoading={isLoading} />;
 };
 
 export default ItemListContainer;
