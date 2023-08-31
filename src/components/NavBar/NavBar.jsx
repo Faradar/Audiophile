@@ -19,17 +19,26 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           {/* Links */}
           <Nav className="me-auto">
-            <LinkContainer to="/">
+            <LinkContainer to="/" activeClassName={styles.active}>
               <Nav.Link className={styles.links}>HOME</Nav.Link>
             </LinkContainer>
 
-            <LinkContainer to="/category/headphones">
+            <LinkContainer
+              to="/category/headphones"
+              activeClassName={styles.active}
+            >
               <Nav.Link className={styles.links}>HEADPHONES</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/category/speakers">
+            <LinkContainer
+              to="/category/speakers"
+              activeClassName={styles.active}
+            >
               <Nav.Link className={styles.links}>SPEAKERS</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/category/earphones">
+            <LinkContainer
+              to="/category/earphones"
+              activeClassName={styles.active}
+            >
               <Nav.Link className={styles.links}>EARPHONES</Nav.Link>
             </LinkContainer>
           </Nav>
