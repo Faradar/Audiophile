@@ -20,7 +20,11 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
 
   return (
     <Card style={{ width: "18rem" }} className="mx-auto">
-      <Card.Img variant="top" src={item.image} alt={item.title} />
+      <Card.Img
+        variant="top"
+        src={`/${item.categoryId}/${item.imageId}`}
+        alt={item.title}
+      />
       <Card.Body>
         <Card.Title>{item.title}</Card.Title>
         <Card.Text>

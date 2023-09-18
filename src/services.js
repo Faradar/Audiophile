@@ -6,6 +6,7 @@ import {
   getDocs,
   query,
   where,
+  addDoc,
 } from "firebase/firestore";
 
 export const getProduct = (id) => {
@@ -54,4 +55,12 @@ export const getProducts = (categoryId) => {
         reject(error);
       });
   });
+};
+
+export const createOrder = (order) => {
+  const db = getFirestore();
+
+  const ordersCollection = collection(db, "orders");
+
+  return addDoc(ordersCollection, order);
 };

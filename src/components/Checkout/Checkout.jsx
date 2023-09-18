@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import CartContext from "../context/CartContext";
-import { getCartTotal, mapCartToOrderItems } from "../utils";
+import CartContext from "../../context/CartContext";
+import { getCartTotal, mapCartToOrderItems } from "../../utils";
 import { serverTimestamp } from "firebase/firestore";
-import { createOrder } from "../services";
+import { createOrder } from "../../services";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
@@ -13,6 +13,7 @@ const Checkout = () => {
 
   const handleCheckout = () => {
     const order = {
+      // La parte del buyer esta hardcodeada, esto deberia venir del formulario de contacto
       buyer: {
         name: "Juan",
         email: "u7q5S@example.com",
