@@ -28,8 +28,7 @@ Project is created with:
 - Bootstrap icons - version 1.10.5
 - React-bootstrap - version 2.8.0
 - SASS - version 1.64.2
-- HTML5
-- JSX
+- Firebase - version 10.4.0
 
 ## Screenshots
 
@@ -42,6 +41,17 @@ To run this project locally using npm:
 ```
 $ npm i
 $ npm run dev
+```
+
+Furthermore, it's necessary to have the environment variables set in the ".env" file. The variables are:
+
+```
+VITE_FIRESTORE_API_KEY
+VITE_FIRESTORE_AUTH_DOMAIN
+VITE_FIRESTORE_PROJECT_ID
+VITE_FIRESTORE_STORAGE_BUCKET
+VITE_FIRESTORE_MESSAGING_SENDER_ID
+VITE_FIRESTORE_APP_ID
 ```
 
 ## Project Status
