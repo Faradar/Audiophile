@@ -5,20 +5,23 @@ import propTypes from "prop-types";
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addItem = (id, quantity) => {
-    const itemInCart = cart.find((item) => item.id === id);
+  const isInCart = (id) => {
+    return cart.some((item) => item.id === id);
+  };
+
+  const addItem = (product, quantity) => {
+    const itemInCart = isInCart(product.id);
 
     if (itemInCart) {
       const newCart = cart.map((item) => {
-        if (item.id === id) {
+        if (item.id === product.id) {
           return { ...item, quantity: item.quantity + quantity };
         }
         return item;
       });
       setCart(newCart);
     } else {
-      // Agregar item a cart
-      setCart([...cart, { id, quantity }]);
+      setCart([...cart, { ...product, quantity }]);
     }
   };
 
@@ -29,10 +32,6 @@ const CartProvider = ({ children }) => {
 
   const clear = () => {
     setCart([]);
-  };
-
-  const isInCart = (id) => {
-    return cart.some((item) => item.id === id);
   };
 
   return (
