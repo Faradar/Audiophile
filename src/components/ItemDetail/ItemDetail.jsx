@@ -31,9 +31,9 @@ const ItemDetail = ({ item, isLoading }) => {
   return (
     <div>
       <Card style={{ width: "18rem" }} className="mx-auto">
-        <Card.Img variant="top" src={item.image} alt={item.name} />
+        <Card.Img variant="top" src={item.image} alt={item.title} />
         <Card.Body>
-          <Card.Title>{item.name}</Card.Title>
+          <Card.Title>{item.title}</Card.Title>
           <Card.Text>
             {item.description}
             <br />${item.price}

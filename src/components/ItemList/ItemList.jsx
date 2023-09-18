@@ -21,7 +21,7 @@ const ItemList = ({ items, isLoading }) => {
           <li key={item.id}>
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey={item.id}>
-                <Accordion.Header>{item.name}</Accordion.Header>
+                <Accordion.Header>{item.title}</Accordion.Header>
                 <Accordion.Body>
                   <Link to={`/item/${item.id}`}>{item.description}</Link>
                 </Accordion.Body>
