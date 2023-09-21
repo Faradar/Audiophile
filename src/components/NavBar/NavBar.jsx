@@ -9,16 +9,10 @@ function NavBar() {
   return (
     <Navbar expand="lg" bg="cback" data-bs-theme="dark">
       <Container>
-        {/* Brand */}
-        <LinkContainer to="/">
-          <Navbar.Brand>
-            <img alt="Audiophile logo" src="/logo.svg"></img>
-          </Navbar.Brand>
-        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className="order-lg-1">
           {/* Links */}
-          <Nav className="me-auto">
+          <Nav>
             <LinkContainer to="/" activeClassName={styles.active}>
               <Nav.Link className={styles.links}>HOME</Nav.Link>
             </LinkContainer>
@@ -43,8 +37,16 @@ function NavBar() {
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
+        {/* Brand */}
+        <LinkContainer to="/">
+          <Navbar.Brand>
+            <img alt="Audiophile logo" src="/logo.svg"></img>
+          </Navbar.Brand>
+        </LinkContainer>
         {/* CartWidget */}
-        <CartWidget />
+        <div className="order-lg-3">
+          <CartWidget />
+        </div>
       </Container>
     </Navbar>
   );
