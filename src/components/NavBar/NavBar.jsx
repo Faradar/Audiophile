@@ -7,7 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 function NavBar() {
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark">
+    <Navbar expand="lg" bg="cback" data-bs-theme="dark">
       <Container>
         {/* Brand */}
         <LinkContainer to="/">

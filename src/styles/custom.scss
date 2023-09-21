@@ -9,6 +9,7 @@
 // Personal Variables to be added to the Custom Bootstrap Maps
 $orangetxt: rgb(216, 125, 74);
 $greytxt: #9b9b9b;
+$cback: #191919;
 
 // Required for Custom Maps
 @import "bootstrap/scss/variables";
@@ -18,6 +19,7 @@ $greytxt: #9b9b9b;
 $custom-theme-colors: (
   "orangetxt": $orangetxt,
   "greytxt": $greytxt,
+  "cback": $cback,
 );
 
 // Merge the theme map with my custom map
