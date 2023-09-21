@@ -13,6 +13,9 @@ export const mapCartToOrderItems = (cart) => {
       quantity: item.quantity,
       price: item.price,
       title: item.title,
+      category: item.categoryId,
+      image: item.imageId,
+      nickname: item.nickname,
     };
   });
 };

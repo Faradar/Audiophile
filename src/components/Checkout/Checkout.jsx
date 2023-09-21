@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import CartContext from "../../context/CartContext";
 import { getCartTotal, mapCartToOrderItems } from "../../utils";
 import { serverTimestamp } from "firebase/firestore";
@@ -8,16 +8,21 @@ const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
+  const formRef = useRef(null);
 
   const total = getCartTotal(cart);
 
-  const handleCheckout = () => {
+  const handleCheckout = (event) => {
+    event.preventDefault();
+
+    const form = formRef.current;
+    const formData = new FormData(form);
+
     const order = {
-      // La parte del buyer esta hardcodeada, esto deberia venir del formulario de contacto
       buyer: {
-        name: "Juan",
-        email: "u7q5S@example.com",
-        phone: "123456789",
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
       },
       items: mapCartToOrderItems(cart),
       total,
@@ -43,8 +48,17 @@ const Checkout = () => {
       {!orderId && (
         <>
           <div>
-            <h4>Formulario de contacto</h4>
-            {/* Aca iria el formulario de contacto */}
+            <h4>Contact Form</h4>
+            <form ref={formRef}>
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" name="name" />
+
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" name="email" />
+
+              <label htmlFor="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" />
+            </form>
           </div>
 
           <div>

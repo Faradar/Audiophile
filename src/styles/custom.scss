@@ -7,7 +7,8 @@
 // $primary: green;
 
 // Personal Variables to be added to the Custom Bootstrap Maps
-$altlight: red;
+$orangetxt: rgb(216, 125, 74);
+$greytxt: #9b9b9b;
 
 // Required for Custom Maps
 @import "bootstrap/scss/variables";
@@ -15,7 +16,8 @@ $altlight: red;
 
 // Custom Bootstrap Maps
 $custom-theme-colors: (
-  "altlight": $altlight,
+  "orangetxt": $orangetxt,
+  "greytxt": $greytxt,
 );
 
 // Merge the theme map with my custom map
