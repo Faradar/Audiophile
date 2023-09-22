@@ -162,14 +162,77 @@ body {
 .modalHeaderP {
   font-size: 15px;
   line-height: 24.9px;
-  color: #b3b3b3;
+  color: #6e6e6e;
   width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.modalBody {
+  flex-direction: column;
+  border-radius: 0.5rem;
+  overflow-y: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.modalBodyItem {
+  background-color: #f1f1f1;
+  width: 100%;
+  min-height: 112px;
+  justify-content: center;
+
+  ul {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+.modalBodyTotal {
+  width: 100%;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  min-height: 93px;
+  padding: 1.5rem;
+
+  p {
+    font-size: 15px;
+  }
+}
+
+.modalButton {
+  width: 100%;
+  border-radius: 0;
+  line-height: 1.2;
+  letter-spacing: 0.0625rem;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  height: 44px;
 }
 
 @media screen and (min-width: 480px) {
   .form {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modalBody {
+    flex-direction: row;
+  }
+
+  .modalBodyItem {
+    width: 220px;
+    min-height: 141px;
+    padding-top: 2.5rem;
+
+    ul {
+      padding-top: 0rem;
+    }
+  }
+
+  .modalBodyTotal {
+    width: 199px;
+    min-height: 141px;
+    padding-top: 2.5rem;
   }
 }
 

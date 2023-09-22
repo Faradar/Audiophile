@@ -10,6 +10,7 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Spinner from "react-bootstrap/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
@@ -18,6 +19,8 @@ const Checkout = () => {
   const formRef = useRef(null);
   const [show, setShow] = useState(false);
   const [previousTotal, setPreviousTotal] = useState(null);
+
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     name: yup
@@ -45,7 +48,9 @@ const Checkout = () => {
   const handleClose = () => {
     setShow(false);
     clear();
+    navigate("/");
   };
+
   const handleShow = () => setShow(true);
   const handleCheckout = () => {
     const form = formRef.current;
@@ -195,57 +200,69 @@ const Checkout = () => {
               alt="Check mark"
               className={styles.modalCheck}
             />
-            <Modal.Header className={`p-0 ${styles.modalHeader}`}>
+            <div className={`p-0 ${styles.modalHeader}`}>
               <Modal.Title className={styles.modalTitle}>
                 THANK YOU
                 <span>FOR YOUR ORDER</span>
               </Modal.Title>
-              <p className={styles.modalHeaderP}>Your order id is?</p>
-            </Modal.Header>
-            <Modal.Body className="d-flex">
-              <div className="d-flex">
-                {cart.map((item) => (
-                  <li
-                    key={item.id}
-                    className={`${styles.cartItem} d-flex justify-content-between align-items-center`}
-                  >
-                    <div className="d-flex align-items-center">
-                      <img
-                        src={`/${item.categoryId}/${item.imageId}`}
-                        alt={item.title}
-                        className="me-2"
-                      />
-                      <div
-                        className="d-flex flex-column fw-bold"
-                        style={{ width: "75px", height: "50px" }}
-                      >
-                        <p style={{ fontSize: "15px" }} className="mb-1">
-                          {item.nickname}
-                        </p>
-                        <p
-                          style={{ fontSize: "14px" }}
-                          className="text-greytxt"
+              <p className={styles.modalHeaderP}>Your order id is: {orderId}</p>
+            </div>
+            <div className={`d-flex p-0 ${styles.modalBody}`}>
+              <div className={`d-flex ${styles.modalBodyItem}`}>
+                <ul>
+                  {cart.map((item) => (
+                    <li
+                      key={item.id}
+                      className={`${styles.cartItem} d-flex justify-content-between align-items-center`}
+                    >
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={`/${item.categoryId}/${item.imageId}`}
+                          alt={item.title}
+                          className="me-2"
+                        />
+                        <div
+                          className="d-flex flex-column fw-bold"
+                          style={{ width: "75px", height: "50px" }}
                         >
-                          ${item.price}
-                        </p>
+                          <p style={{ fontSize: "15px" }} className="mb-1">
+                            {item.nickname}
+                          </p>
+                          <p
+                            style={{ fontSize: "14px" }}
+                            className="text-greytxt"
+                          >
+                            ${item.price}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <span className="mx-2">x{item.quantity}</span>
-                    </div>
-                  </li>
-                ))}
+                      <div>
+                        <span className="mx-2 text-greytxt fw-bold">
+                          x{item.quantity}
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="d-flex">
-                <p>Grand Total</p>
-                <p>${previousTotal}</p>
+              <div className={`d-flex bg-cback ${styles.modalBodyTotal}`}>
+                <p className="text-greytxt mb-2">GRAND TOTAL</p>
+                <p
+                  className={`text-white fw-bold ${styles.modalBodyTotalNumber}`}
+                >
+                  $ {previousTotal}
+                </p>
               </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="orangetxt text-white" onClick={handleClose}>
+            </div>
+            <div>
+              <Button
+                variant="orangetxt text-white"
+                onClick={handleClose}
+                className={`${styles.modalButton}`}
+              >
                 BACK TO HOME
               </Button>
-            </Modal.Footer>
+            </div>
           </div>
         </Modal>
       )}
