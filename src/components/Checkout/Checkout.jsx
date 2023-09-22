@@ -3,18 +3,51 @@ import CartContext from "../../context/CartContext";
 import { getCartTotal, mapCartToOrderItems } from "../../utils";
 import { serverTimestamp } from "firebase/firestore";
 import { createOrder } from "../../services";
+import styles from "./Checkout.module.scss";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Spinner";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { cart, clear } = useContext(CartContext);
   const formRef = useRef(null);
+  const [show, setShow] = useState(false);
+  const [previousTotal, setPreviousTotal] = useState(null);
+
+  const schema = yup.object().shape({
+    name: yup
+      .string()
+      .min(2, "Your name needs to have 2 characters at least")
+      .max(40, "Your name can't have more than 40 characters")
+      .required("Please enter your name"),
+    email: yup
+      .string()
+      .email("Please enter a valid email address")
+      .required("Please enter your email"),
+    phone: yup.string().required("Please enter your phone number"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const total = getCartTotal(cart);
 
-  const handleCheckout = (event) => {
-    event.preventDefault();
-
+  const handleClose = () => {
+    setShow(false);
+    clear();
+  };
+  const handleShow = () => setShow(true);
+  const handleCheckout = () => {
     const form = formRef.current;
     const formData = new FormData(form);
 
@@ -31,58 +64,192 @@ const Checkout = () => {
 
     setIsLoading(true);
     createOrder(order).then((docRef) => {
+      handleShow(total);
       setOrderId(docRef.id);
       setIsLoading(false);
-      clear();
+      setPreviousTotal(total);
     });
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
-
-      <h2>Resumen de la compra</h2>
-
-      {orderId && <p>El id de la orden es: {orderId}</p>}
-
-      {!orderId && (
-        <>
-          <div>
-            <h4>Contact Form</h4>
-            <form ref={formRef}>
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" />
-
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" />
-
-              <label htmlFor="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" />
-            </form>
+    <main className={`${styles.main}`}>
+      <div className={`${styles.div}`}>
+        <div className={`${styles.mainDiv}`}>
+          <h1 className={`${styles.mainTitle}`}>CHECKOUT</h1>
+          <h2 className={`${styles.billing}`}>BILLING DETAILS</h2>
+          <form ref={formRef} className={`${styles.form}`}>
+            <div>
+              <label htmlFor="name" className={`${styles.label}`}>
+                Full Name
+              </label>
+              {errors.name && (
+                <p className={`${styles.error}`}>{errors.name.message}</p>
+              )}
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Alexei Ward"
+                className={`${styles.input}`}
+                {...register("name")}
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className={`${styles.label}`}>
+                Email Address
+              </label>
+              {errors.email && (
+                <p className={`${styles.error}`}>{errors.email.message}</p>
+              )}
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="alexei@mail.com"
+                className={`${styles.input}`}
+                {...register("email")}
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className={`${styles.label}`}>
+                Phone Number
+              </label>
+              {errors.phone && (
+                <p className={`${styles.error}`}>{errors.phone.message}</p>
+              )}
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+1 202-555-0136"
+                className={`${styles.input}`}
+                {...register("phone")}
+              />
+            </div>
+          </form>
+        </div>
+        <div className={`${styles.summaryDiv}`}>
+          <h3 className={`${styles.summaryTitle}`}>SUMMARY</h3>
+          <ul className={`${styles.summaryUl}`}>
+            {cart.map((item) => (
+              <li
+                key={item.id}
+                className={`${styles.cartItem} d-flex justify-content-between align-items-center`}
+              >
+                <div className="d-flex align-items-center">
+                  <img
+                    src={`/${item.categoryId}/${item.imageId}`}
+                    alt={item.title}
+                    className="me-2"
+                  />
+                  <div
+                    className="d-flex flex-column fw-bold"
+                    style={{ width: "75px", height: "50px" }}
+                  >
+                    <p style={{ fontSize: "15px" }} className="mb-1">
+                      {item.nickname}
+                    </p>
+                    <p style={{ fontSize: "14px" }} className="text-greytxt">
+                      ${item.price}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="mx-2">x{item.quantity}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="d-flex justify-content-between">
+            <p className={`${styles.summaryTotalTxt}`}>TOTAL</p>
+            <p className={`${styles.summaryTotal}`}>${total}</p>
           </div>
+          <button
+            type="submit"
+            onClick={handleSubmit(handleCheckout)}
+            className={`${styles.finalButton}`}
+          >
+            CONTINUE & PAY
+          </button>
+        </div>
+      </div>
 
-          <div>
-            <h4>Productos</h4>
-            <ul>
-              {cart.map((item) => (
-                <li key={item.id}>
-                  <h3>{item.title}</h3>
-                  <p>Cantidad: {item.quantity}</p>
-                  <p>Precio por unidad: ${item.price}</p>
-                  <p>Subtotal: ${item.quantity * item.price}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <p>Total de la compra: ${total}</p>
-
-          <button onClick={handleCheckout}>Finalizar compra</button>
-
-          {isLoading && <p>Procesando la compra...</p>}
-        </>
+      {isLoading && (
+        <div className={styles.spinnerDiv}>
+          <Spinner
+            animation="border"
+            role="status"
+            variant="orangetxt"
+            className={styles.spinner}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       )}
-    </div>
+
+      {orderId && (
+        <Modal show={show} onHide={handleClose}>
+          <div className={styles.modal}>
+            <img
+              src="./icon-check-mark.svg"
+              alt="Check mark"
+              className={styles.modalCheck}
+            />
+            <Modal.Header className={`p-0 ${styles.modalHeader}`}>
+              <Modal.Title className={styles.modalTitle}>
+                THANK YOU
+                <span>FOR YOUR ORDER</span>
+              </Modal.Title>
+              <p className={styles.modalHeaderP}>Your order id is?</p>
+            </Modal.Header>
+            <Modal.Body className="d-flex">
+              <div className="d-flex">
+                {cart.map((item) => (
+                  <li
+                    key={item.id}
+                    className={`${styles.cartItem} d-flex justify-content-between align-items-center`}
+                  >
+                    <div className="d-flex align-items-center">
+                      <img
+                        src={`/${item.categoryId}/${item.imageId}`}
+                        alt={item.title}
+                        className="me-2"
+                      />
+                      <div
+                        className="d-flex flex-column fw-bold"
+                        style={{ width: "75px", height: "50px" }}
+                      >
+                        <p style={{ fontSize: "15px" }} className="mb-1">
+                          {item.nickname}
+                        </p>
+                        <p
+                          style={{ fontSize: "14px" }}
+                          className="text-greytxt"
+                        >
+                          ${item.price}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <span className="mx-2">x{item.quantity}</span>
+                    </div>
+                  </li>
+                ))}
+              </div>
+              <div className="d-flex">
+                <p>Grand Total</p>
+                <p>${previousTotal}</p>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="orangetxt text-white" onClick={handleClose}>
+                BACK TO HOME
+              </Button>
+            </Modal.Footer>
+          </div>
+        </Modal>
+      )}
+    </main>
   );
 };
 

@@ -7,10 +7,18 @@ import { LinkContainer } from "react-router-bootstrap";
 
 function NavBar() {
   return (
-    <Navbar expand="lg" bg="cback" data-bs-theme="dark">
+    <Navbar
+      expand="lg"
+      bg="cback"
+      data-bs-theme="dark"
+      className={styles.navbar}
+    >
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="order-lg-1">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={`order-lg-1 ${styles.navbar}`}
+        >
           {/* Links */}
           <Nav>
             <LinkContainer to="/" activeClassName={styles.active}>

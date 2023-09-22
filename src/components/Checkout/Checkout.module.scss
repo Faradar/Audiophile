@@ -1,0 +1,194 @@
+body {
+  background-color: #fafafa;
+}
+
+.main {
+  padding: 0 1.5rem;
+  height: 100%;
+}
+
+.mainDiv {
+  padding: 1.5rem;
+  background-color: white;
+  transform: translateY(3.5rem);
+}
+
+.mainTitle {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.billing {
+  color: rgb(216, 125, 74);
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 0.0581rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.input {
+  border-radius: 0.5rem;
+  border: 1px solid #cfcfcf;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  transition: all 0.2s ease;
+  padding: 1rem 0 1rem 1rem;
+  font-size: 0.875rem;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+
+  &::placeholder {
+    color: #b3b3b3;
+    font-weight: 700;
+  }
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.summaryDiv {
+  padding: 1.5rem;
+  background-color: white;
+  transform: translateY(3.5rem);
+  margin: 2rem 0 8rem;
+}
+
+.cartItem {
+  list-style-type: none;
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 0.5rem;
+  }
+}
+
+.summaryTitle {
+  font-size: 1.125rem;
+  line-height: 1.33;
+  letter-spacing: 0.0806rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.summaryUl {
+  padding: 0;
+}
+
+.summaryTotal {
+  color: rgb(216, 125, 74);
+  line-height: 1.66;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.summaryTotalTxt {
+  color: #b3b3b3;
+  line-height: 1.66;
+  font-size: 0.9375rem;
+}
+
+.finalButton {
+  appearance: none;
+  border: none;
+  background-color: rgb(216, 125, 74);
+  color: white;
+  width: 100%;
+  height: 44px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.spinnerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  font-size: 1rem;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.modal {
+  padding: 3rem;
+  max-width: 33.75rem;
+}
+
+.modalCheck {
+  width: 64px;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalTitle {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.125;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeaderP {
+  font-size: 15px;
+  line-height: 24.9px;
+  color: #b3b3b3;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 480px) {
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .div {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .mainDiv {
+    margin: 0 2rem 8rem 0;
+    width: 70%;
+    max-width: 730px;
+  }
+
+  .summaryDiv {
+    margin-top: 0;
+    width: 30%;
+    max-width: 348px;
+  }
+}
