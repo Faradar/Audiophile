@@ -8,10 +8,11 @@
 
 - [General Info](#general-info)
 - [Technologies](#technologies)
+- [Features](#features)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
 - [Project Status](#project-status)
-- [Room for Improvement](#room-for-improvement)
+- [To do](#to-do)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
@@ -25,14 +26,23 @@ Project is created with:
 
 - React - version 18.2.0
 - Bootstrap - version 5.3.1
-- Bootstrap icons - version 1.10.5
-- React-bootstrap - version 2.8.0
+- React-Bootstrap - version 2.8.0
 - SASS - version 1.64.2
 - Firebase - version 10.4.0
+- React Hook Form - version 7.46.2
+- Yup - version 1.2.0
+
+## Features
+
+- Responsive
+- Form validation
+- Loading screens
 
 ## Screenshots
 
-![Example screenshot](./img/screenshot.png)
+![Checkout Screenshot](./public/Checkout_screenshot.png)
+
+![Checkout Screenshot 2](./public/Checkout2_screenshot.png)
 
 ## Setup
 
@@ -58,16 +68,11 @@ VITE_FIRESTORE_APP_ID
 
 Project is: _in progress_
 
-## Room for Improvement
+## To do
 
-Room for improvement:
-
-- A lot, it still needs a lot of work
-
-To do:
-
-- Mobile First
-- Full working nav
+- Home Page
+- Category Page
+- Item detail page
 
 ## Acknowledgements
 
