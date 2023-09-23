@@ -95,7 +95,9 @@ const Checkout = () => {
                 id="name"
                 name="name"
                 placeholder="Alexei Ward"
-                className={`${styles.input}`}
+                className={`${styles.input} ${
+                  errors.name ? "border-danger" : ""
+                }`}
                 {...register("name")}
               />
             </div>
@@ -111,7 +113,9 @@ const Checkout = () => {
                 id="email"
                 name="email"
                 placeholder="alexei@mail.com"
-                className={`${styles.input}`}
+                className={`${styles.input} ${
+                  errors.email ? "border-danger" : ""
+                }`}
                 {...register("email")}
               />
             </div>
@@ -127,7 +131,9 @@ const Checkout = () => {
                 id="phone"
                 name="phone"
                 placeholder="+1 202-555-0136"
-                className={`${styles.input}`}
+                className={`${styles.input} ${
+                  errors.phone ? "border-danger" : ""
+                }`}
                 {...register("phone")}
               />
             </div>
