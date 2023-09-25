@@ -208,13 +208,13 @@ body {
   height: 44px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 30em) {
   .form {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48em) {
   .modalBody {
     flex-direction: row;
   }
@@ -236,7 +236,7 @@ body {
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 62em) {
   .div {
     display: flex;
     justify-content: center;
