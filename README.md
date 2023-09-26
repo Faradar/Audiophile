@@ -70,7 +70,7 @@ Project is: _in progress_
 
 ## To do
 
-- Item detail page
+- Item detail page is stil missing a few things
 
 ## Acknowledgements
 
