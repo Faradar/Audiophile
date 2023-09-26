@@ -70,7 +70,6 @@ Project is: _in progress_
 
 ## To do
 
-- Category Page
 - Item detail page
 
 ## Acknowledgements
