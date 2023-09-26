@@ -7,7 +7,7 @@ const ItemDetail = ({ item, isLoading, addItem }) => {
   if (isLoading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
-        <Spinner animation="border" role="status">
+        <Spinner animation="border" role="status" variant="orangetxt">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       </div>
