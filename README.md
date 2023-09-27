@@ -25,6 +25,7 @@ This project is a prototype e-commerce page, designed to learn and practice both
 Project is created with:
 
 - React - version 18.2.0
+- Vite - version 4.4.5
 - Bootstrap - version 5.3.1
 - React-Bootstrap - version 2.8.0
 - SASS - version 1.64.2
