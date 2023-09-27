@@ -40,9 +40,19 @@ Project is created with:
 
 ## Screenshots
 
-![Checkout Screenshot](./public/Checkout_screenshot.png)
+![Checkout Screenshot](./public/README_screenshot_1.png)
 
-![Checkout Screenshot 2](./public/Checkout2_screenshot.png)
+![Checkout Screenshot](./public/README_screenshot_2.png)
+
+![Checkout Screenshot](./public/README_screenshot_3.png)
+
+![Checkout Screenshot](./public/README_screenshot_4.png)
+
+![Checkout Screenshot](./public/README_screenshot_5.png)
+
+![Checkout Screenshot](./public/README_screenshot_6.png)
+
+![Checkout Screenshot](./public/README_screenshot_7.png)
 
 ## Setup
 
