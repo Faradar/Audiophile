@@ -77,18 +77,14 @@ VITE_FIRESTORE_APP_ID
 
 ## Project Status
 
-Project is: _in progress_
-
-## To do
-
-- Item detail page is stil missing a few things
+Project is: _Finished_
 
 ## Acknowledgements
 
-- This project was inspired by <a href="https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx" target="_blank" rel="noopener">Frontend Mentor</a>.
-- This project was based on <a href="https://github.com/mbart13/audiophile-ecommerce-website">this other project</a>.
-- Many thanks to Coderhouse for its course.
+- This project was inspired by <a href="https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx" target="_blank" rel="noopener">Frontend Mentor</a>
+- This project was based on <a href="https://github.com/mbart13/audiophile-ecommerce-website">this other project</a>
+- Many thanks to Coderhouse for its course
 
 ## Contact
 
-Created by <a href="https://github.com/faradar" target="_blank" rel="noopener">Tomás Echeveste Arteaga</a> - feel free to contact me at <echeveste.t@gmail.com>.
+Created by <a href="https://github.com/faradar" target="_blank" rel="noopener">Tomás Echeveste Arteaga</a> - feel free to contact me at <echeveste.t@gmail.com>
